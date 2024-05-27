@@ -27,19 +27,8 @@ def add_vaccine_record():
         else:
             st.error("Por favor, preencha todos os campos.")
 
-
-# Função para visualizar a blockchain
-def view_blockchain():
-    global blockchain
     st.title("Visualizar Blockchain de Vacinas")
     for block in blockchain.blocks:
         st.write(block)
 
-# Menu de navegação
-st.sidebar.title("Navegação")
-option = st.sidebar.selectbox("Escolha uma opção", ["Adicionar Registro de Vacina", "Visualizar Blockchain"])
-
-if option == "Adicionar Registro de Vacina":
-    add_vaccine_record()
-elif option == "Visualizar Blockchain":
-    view_blockchain()
+add_vaccine_record()
