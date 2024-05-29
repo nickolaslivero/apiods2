@@ -1,0 +1,2 @@
+-r ./blockchain_api/requirements.txt
+-r ./vaccine_project/requirements.txt
