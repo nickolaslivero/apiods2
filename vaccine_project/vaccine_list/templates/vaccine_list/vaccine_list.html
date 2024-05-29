@@ -1,14 +1,43 @@
 {% extends 'base.html' %}
 {% block content %}
-<form method="POST" action="{% url 'logout' %}">
-    {% csrf_token %}
-    <input type="submit" value="Logout" >
-</form>
-<a href="{% url 'add_vaccine' %}"><button>Add vaccine</button></a>
-<h1>My vaccines</h1>
-{% for vaccine in vaccine_list %}
-<p>{{ vaccine.vaccine_name }}</p>
-<p>{{ vaccine.date }}</p>
-<hr>
-{% endfor %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Vaccine List</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'add_vaccine' %}">Add vaccine</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<div class="container">
+    <div class="row">
+
+        {% for vaccine in vaccine_list %}
+        <div class="col-lg-4">
+            <div class="card card-margin">
+                <div class="card-header no-border">
+                    <h5 class="card-title">{{ vaccine.vaccine_name }}</h5>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="widget-49">
+                        <p>{{ vaccine.vaccine_name }}</p>
+                        <p>{{ vaccine.date }}</p>
+                        <p>{{ vaccine.end_date }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
 {% endblock %}

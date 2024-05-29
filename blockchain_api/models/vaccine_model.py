@@ -6,3 +6,4 @@ class VaccineRecord(BaseModel):
     username: str
     vaccine_name: str
     date: str
+    end_date: str
