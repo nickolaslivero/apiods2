@@ -18,7 +18,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Internal apps
-    'users.apps.UsersConfig'
+    'users.apps.UsersConfig',
+    'vaccine_list.apps.VaccineListConfig'
 ]
 
 MIDDLEWARE = [

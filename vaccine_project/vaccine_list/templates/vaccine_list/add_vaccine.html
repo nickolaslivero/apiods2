@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Add vaccine</h1>
+<form method="POST" action="{% url 'add_vaccine' %}">
+    {% csrf_token %}
+    <label>Vaccine Name</label>
+    <input type="text" name="vaccine_name">
+    <label>Date</label>
+    <input type="date" name="date">
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

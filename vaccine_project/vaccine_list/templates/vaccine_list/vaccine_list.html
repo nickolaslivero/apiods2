@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <input type="submit" value="Logout" >
+</form>
+<a href="{% url 'add_vaccine' %}"><button>Add vaccine</button></a>
+<h1>My vaccines</h1>
+{% for vaccine in vaccine_list %}
+<p>{{ vaccine.vaccine_name }}</p>
+<p>{{ vaccine.date }}</p>
+<hr>
+{% endfor %}
+{% endblock %}

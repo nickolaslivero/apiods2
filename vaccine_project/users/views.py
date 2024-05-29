@@ -4,9 +4,6 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import CreateUserForm
 
 
-def home(request):
-    return render(request, 'base.html')
-
 def login_page(request):
 
     if request.method == 'POST':
@@ -40,3 +37,7 @@ def register(request):
         'form': form
     }
     return render(request, 'users/register.html', context)
+
+def logout_page(request):
+    logout(request)
+    return redirect('login')
